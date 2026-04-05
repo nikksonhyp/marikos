@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>მარიკოს</title>
+<style>
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #4c1d95;
+    font-family: sans-serif;
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    background: white;
+    color: black;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.yes {
+    background: #ff6b81;
+    color: white;
+     width: auto;        
+    padding: 10px 14px; 
+    font-size: 14px;
+
+    transition: 0.1s;
+
+}
+
+.no {
+    position: fixed;
+    background: #d1d5db;
+    color: black;
+
+    width: auto;        
+    padding: 10px 14px; 
+    font-size: 14px;
+
+    transition: 0.1s;
+
+}
+</style>
+</head>
+<body>
+<div class="container" id="app">
+    <h1>მარიკოს < 3</h1>
+    <p></p>
+    <button class="yes" onclick="nextStep()">გაგრძელება</button>
+</div>
+
+<script>
+function nextStep() {
+    document.getElementById("app").innerHTML = `
+        <h1>დებილი ხო ხარ აღიარე შენთვითონვე</h1>
+        <button class="yes" onclick="yes()">კი < 3</button>
+        <button class="no" id="noBtn" ontouchstart="move()" onmouseover="move()">არა...</button>
+    `;
+}
+
+
+function nextStep2() {
+    document.getElementById("app").innerHTML = `
+        <h1>ხო გიყვარვარ</h1>
+        <button class="yes" onclick="nextStep2()">კი!</button>
+        <button class="yes" onclick="nextStep2()">ძალიან!</button>
+    `;
+}
+
+function yes() {
+    document.getElementById("app").innerHTML = `
+        <h1> ვიცოდი რო გიყვარდი <3333333333</h1>
+        <h1> მეტის გაკეთება მეზარება ცოტა მერე იყოს სხვა რაღაცეებიც</h1>
+    `;
+}
+
+function move() {
+    let btn = document.getElementById("noBtn");
+    let x = Math.random() * (window.innerWidth - 120);
+    let y = Math.random() * (window.innerHeight - 60);
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+}
+</script>
+</body>
+</html>
